@@ -1,0 +1,6 @@
+.ipynb_checkpoints/
+.chats/
+.data/
+*.pyc
+__pycache__/
+/chats/ipynb_checkpoints/
