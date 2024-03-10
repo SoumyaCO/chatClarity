@@ -4,3 +4,4 @@
 *.pyc
 __pycache__/
 /chats/ipynb_checkpoints/
+.env/
