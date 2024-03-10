@@ -14,6 +14,7 @@
 ### Progress
 #### [Date: 10-03-2014] 
 1. [Before noon] created virtual environment and initiated flask experimentation
+2. [Before Night] exp: upload file, render file (HTML), static and templates file working understanding.
 
 #### TODO
 1. Create Flask server, expand `utils.py`
