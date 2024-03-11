@@ -1,8 +1,10 @@
-.backend/.env
-.backend/,ipynb_checkpoints/,__pycache__/
+backend/.env/
+backend/.ipynb_checkpoints/
+backend/__pycache__/
 *.pyc
 *.pyo
 *.pyd
 *.db
 *.sqlite3
 *.pyc
+*.pyo
