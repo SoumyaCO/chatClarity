@@ -1,7 +1,14 @@
 # ChatClarity
 
 ### An Experiment project to generate whats app group chat analytics and summerization
-![Design](plot2deploy.png)
+![Design](diagrams/super_higher_level_design.png)
+
+
+
+
+
+
+
 
 #### Library used:
 1. Pandas
@@ -17,7 +24,7 @@
 2. [Before Night] exp: upload file, render file (HTML), static and templates file working understanding.
 
 #### [Date: 11-03-2024]
-1.
+1. [Before Noon] restricted the file to only txt file uploads, and also secured the file uploading to protect system files, configured upload folder, taken input file and geerated graph from it (user vs msg count graph)
 
 #### TODO
 1. Create Flask server, expand `utils.py`
