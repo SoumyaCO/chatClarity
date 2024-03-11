@@ -1,36 +1,8 @@
-# Python
-__pycache__/
-*.py[cod]
-*.so
-*.egg-info/
-dist/
-build/
-*.egg
-*.swp
-*.swo
-
-# Flask
-instance/
-.webassets-cache
-
-# IDE
-.vscode/
-.idea/
-*.iml
-
-# Logs
-*.log
-
-# Environment
-.env
-venv/
-env/
-
-# Database
-db.sqlite3
-
-# Miscellaneous
-*.bak
-*.tmp
-*.csv
-*.xlsx
+.backend/.env
+.backend/,ipynb_checkpoints/,__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.pyc
