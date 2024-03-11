@@ -1,7 +1,36 @@
-.ipynb_checkpoints/
-.chats/
-.data/
-*.pyc
+# Python
 __pycache__/
-/chats/ipynb_checkpoints/
-.env/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+*.swp
+*.swo
+
+# Flask
+instance/
+.webassets-cache
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Environment
+.env
+venv/
+env/
+
+# Database
+db.sqlite3
+
+# Miscellaneous
+*.bak
+*.tmp
+*.csv
+*.xlsx
