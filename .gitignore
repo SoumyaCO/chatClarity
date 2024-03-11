@@ -8,3 +8,4 @@ backend/__pycache__/
 *.sqlite3
 *.pyc
 *.pyo
+frontend/node_modules/
