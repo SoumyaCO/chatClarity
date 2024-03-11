@@ -33,10 +33,12 @@ def get_data():
         flash("No file selected")
         return redirect(request.url)
     if file and allowed_file(file.filename):
-        return render_template('success.html')
-        # data = get_and_preprocess_data(file)
-        # plot_some_data(data)
-        # return render_template('plot.html'), 200
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+    # handover the file to the get_and_preprocess_data function
+        get_and_preprocess_data(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+        os.remove(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+        return render_template('plot.html'), 200
+
     else:
         flash("Invalid file")
         return redirect(request.url)

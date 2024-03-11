@@ -2,6 +2,7 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 import os
+import plotly.express as px
 
 def process_data(data: pd.DataFrame) -> pd.DataFrame:
     """
@@ -20,7 +21,7 @@ def process_data(data: pd.DataFrame) -> pd.DataFrame:
     data["Date"] = pd.to_datetime(data["Date"], format="mixed")
     return data
 
-def get_and_preprocess_data(path: str) -> pd.DataFrame:
+def get_and_preprocess_data(path: str) -> None:
     """
     Get the data from a path and preprocess it
 
@@ -43,7 +44,7 @@ def get_and_preprocess_data(path: str) -> pd.DataFrame:
             df.replace("", float("NaN"), inplace=True)
             df.dropna(how='all', axis=1, inplace=True)
             df = process_data(data=df)
-            return df
+            px.histogram(df[df["Date"] > '30-01-2024'], x="User", title="User vs Message Count").write_html("templates/plot.html")
     except:
         print("No such file. ")
 
