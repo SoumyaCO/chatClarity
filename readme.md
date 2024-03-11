@@ -3,13 +3,6 @@
 ### An Experiment project to generate whats app group chat analytics and summerization
 ![Design](diagrams/super_higher_level_design.png)
 
-
-
-
-
-
-
-
 #### Library used:
 1. Pandas
 2. Plotly

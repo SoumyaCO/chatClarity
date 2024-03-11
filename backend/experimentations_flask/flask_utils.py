@@ -1,8 +1,7 @@
 import pandas as pd
 import re
-import matplotlib.pyplot as plt
-import os
 import plotly.express as px
+from flask import redirect, flash
 
 def process_data(data: pd.DataFrame) -> pd.DataFrame:
     """
@@ -21,7 +20,7 @@ def process_data(data: pd.DataFrame) -> pd.DataFrame:
     data["Date"] = pd.to_datetime(data["Date"], format="mixed")
     return data
 
-def get_and_preprocess_data(path: str) -> None:
+def get_and_preprocess_data(path: str, date) -> None:
     """
     Get the data from a path and preprocess it
 
@@ -44,18 +43,15 @@ def get_and_preprocess_data(path: str) -> None:
             df.replace("", float("NaN"), inplace=True)
             df.dropna(how='all', axis=1, inplace=True)
             df = process_data(data=df)
-            px.histogram(df[df["Date"] > '30-01-2024'], x="User", title="User vs Message Count").write_html("templates/plot.html")
+            px.histogram(df[df["Date"] < date], x="User", title="User vs Message Count").write_html("templates/plot.html")
     except:
         print("No such file. ")
 
-
-# DUMMY FUNCTION FOR CHECKING
-def plot_some_data(data: pd.DataFrame):
-    data.User.plot.bar()
-    plt.savefig('templates/plot.html')
-
-def delete_plot():
-    if os.path.exists('templates/plot.html'):
-        os.remove('templates/plot.html')
-    else:
-        print("The file does not exist")
+def handle_file_errors(request):
+    if 'file' not in request.files:
+        flash("No file part in the request")
+        return redirect(request.url)
+    file = request.files['file']
+    if file.filename == '':
+        flash("No file selected")
+        return redirect(request.url)
