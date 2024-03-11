@@ -10,6 +10,15 @@
 4. Nltk
 5. Huggingface transformers
 
+
+### Progress
+#### [Date: 10-03-2024] 
+1. [Before noon] created virtual environment and initiated flask experimentation
+2. [Before Night] exp: upload file, render file (HTML), static and templates file working understanding.
+
+#### [Date: 11-03-2024]
+1.
+
 #### TODO
 1. Create Flask server, expand `utils.py`
 2. Add analytics using `plotly`

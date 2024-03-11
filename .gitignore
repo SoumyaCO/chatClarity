@@ -1,7 +1,10 @@
-.ipynb_checkpoints/
-.chats/
-.data/
+backend/.env/
+backend/.ipynb_checkpoints/
+backend/__pycache__/
 *.pyc
-__pycache__/
-/chats/ipynb_checkpoints/
-.env/
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.pyc
+*.pyo

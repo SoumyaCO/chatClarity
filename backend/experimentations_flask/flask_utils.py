@@ -1,5 +1,7 @@
 import pandas as pd
 import re
+import matplotlib.pyplot as plt
+import os
 
 def process_data(data: pd.DataFrame) -> pd.DataFrame:
     """
@@ -46,3 +48,13 @@ def get_and_preprocess_data(path: str) -> pd.DataFrame:
         print("No such file. ")
 
 
+# DUMMY FUNCTION FOR CHECKING
+def plot_some_data(data: pd.DataFrame):
+    data.User.plot.bar()
+    plt.savefig('templates/plot.html')
+
+def delete_plot():
+    if os.path.exists('templates/plot.html'):
+        os.remove('templates/plot.html')
+    else:
+        print("The file does not exist")
