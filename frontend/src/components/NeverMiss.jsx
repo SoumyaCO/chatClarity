@@ -5,7 +5,6 @@ import BannerBackground from "../Assets/home-banner-background.png"
 import home_banner_image from '../Assets/home-banner-image.png'
 import { FiArrowRight } from "react-icons/fi"
 
-
 function NeverMiss() {
   const [showUploader, setShowUploader] = useState(false);
 
@@ -18,17 +17,18 @@ function NeverMiss() {
         </div>
     <div className='home-text-section'>
      
-        <h1 className="primary-heading">
-          Never miss an important update
-          </h1>
-        <p className="secondary-text">
-        Unlock the hidden potential of your WhatsApp conversations with ChatClarity
-          </p>
-        
         {!showUploader && (
-          <button className="secondary-button" onClick={() => setShowUploader(true)}>
-            Get Started <FiArrowRight />{" "}
-          </button>
+          <>
+            <h1 className="primary-heading">
+              Never miss an important update
+            </h1>
+            <p className="secondary-text">
+              Unlock the hidden potential of your WhatsApp conversations with ChatClarity
+            </p>
+            <button className="secondary-button" onClick={() => setShowUploader(true)}>
+              Get Started <FiArrowRight />{" "}
+            </button>
+          </>
         )}
         {showUploader && (
           <div className='Upload_file fade-in'>
