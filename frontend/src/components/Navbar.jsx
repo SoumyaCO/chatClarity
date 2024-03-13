@@ -13,6 +13,8 @@ import InfoIcon from "@mui/icons-material/Info"
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded"
 import Github_logo from '../Assets/Github_logo.png'
 import Chatclarity_logo from '../Assets/chatclarity_logo.png'
+import {Link} from 'react-router-dom'
+
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -25,7 +27,7 @@ const Navbar = () => {
       text: "About",
       icon: <InfoIcon />,
     },
-   
+
     {
       text: "Contact us",
       icon: <PhoneRoundedIcon />,
@@ -33,19 +35,19 @@ const Navbar = () => {
   ]
   return (
     <nav>
-    <div className='nav-logo-container'>
-        <img src={Chatclarity_logo}  alt="" className='Logo'/>
-        </div>
-        <div className="navbar-links-container">
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Contact us</a>
-          
-          <a href=""><img src={Github_logo} alt="" className="navbar-github-icon" /></a>
-          
-         </div>
-       <div className="navbar-menu-container">
-        <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
+      <div className='nav-logo-container'>
+        <img src={Chatclarity_logo} alt="" className='Logo' />
+      </div>
+      <div className="navbar-links-container">
+      <Link to="/">Home</Link>
+        <a href="">About</a>
+        <Link to="/contact">Contact us</Link>
+      <a href=""><img src={Github_logo} alt="" className="navbar-github-icon" /></a>
+
+      </div>
+      <div className="navbar-menu-container">
+        <HiOutlineBars3 onClick={() => setOpenMenu(true)}
+         />
       </div>
       <Drawer open={openMenu} onClose={() => setOpenMenu(false)} anchor="right">
         <Box
@@ -67,7 +69,7 @@ const Navbar = () => {
           <Divider />
         </Box>
       </Drawer>
-       </nav>
+    </nav>
   )
 }
 
