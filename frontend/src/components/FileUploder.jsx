@@ -13,7 +13,7 @@ function FileUploader() {
           onClick={() => document.querySelector(".input-field").click()}
         >
           <input type='file' 
-                 accept='.doc,.pdf,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
+                 accept='.txt, application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
                  className='input-field' 
                  hidden
                  onChange={({target: {files}}) => {
