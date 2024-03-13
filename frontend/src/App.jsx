@@ -1,15 +1,22 @@
 import "./App.css";
-
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import NeverMiss from "./components/NeverMiss"
+import Contact from "./components/Contact"
+
 import Footer from "./components/Footer"
-import FileUploder from "./components/FileUploder"
+
 const App = () => {
   return (
     <div className='container'>
-     <NeverMiss/>
-     {/* <FileUploder/> */}
-      <Footer/>
+     
+     <Router>
+     <Routes>
+      <Route path="/" element={<NeverMiss/>}/>
+      <Route path="/Contact" element={<Contact/>}/>
+     </Routes>
+     </Router>
+     <Footer/>
     </div>
   )
 }
