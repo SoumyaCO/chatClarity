@@ -173,6 +173,18 @@ nav {
   display: flex;
   margin-top: 1.5rem;
 }
+.date_picker{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  user-select: none;
+  
+}
+.date_picker label {
+  color: #e9ebed;
+  padding-right: 10px;
+}
 .secondary-button svg {
   margin-left: 0.75rem;
   font-size: 1.5rem;

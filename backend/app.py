@@ -2,16 +2,13 @@
 API routes and main file to run 
 '''
 import os
-from flask import request, render_template, redirect
+from flask import request, render_template, redirect, json
 from werkzeug.utils import secure_filename
 from config import app, UPLOAD_FOLDER
 from utils import allowed_file
-from data_processing import process_data
+from data_processing import process_data, user_vs_msg_count
 
-
-
-# ROUTES ________________________________________________
-
+# Routes
 # tesing =================
 @app.post('/test')       
 def test_route():          
@@ -20,11 +17,11 @@ def test_route():
     file = request.files['file']
     upload_path = os.path.join(UPLOAD_FOLDER, secure_filename(file.filename))
     file.save(upload_path)
-    process_data(upload_path, date)
-    r = {"message": "Got it"}
-    return  r, 200
+    message = user_vs_msg_count(upload_path)
+    return json.dumps(message), 200
+    
 
-                         #
+                         
 # testng =================
 
 @app.get('/')

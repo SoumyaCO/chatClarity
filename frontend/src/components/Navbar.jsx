@@ -35,19 +35,19 @@ const Navbar = () => {
   ]
   return (
     <nav>
-      <div className='nav-logo-container'>
-        <img src={Chatclarity_logo} alt="" className='Logo' />
+      <div className="nav-logo-container">
+        <img src={Chatclarity_logo} alt="" className="Logo" />
       </div>
       <div className="navbar-links-container">
-      <Link to="/">Home</Link>
+        <Link to="/">Home</Link>
         <a href="">About</a>
         <Link to="/contact">Contact us</Link>
-      <a href=""><img src={Github_logo} alt="" className="navbar-github-icon" /></a>
-
+        <a href="https://github.com/SoumyaCO/chatClarity">
+          <img src={Github_logo} alt="" className="navbar-github-icon" />
+        </a>
       </div>
       <div className="navbar-menu-container">
-        <HiOutlineBars3 onClick={() => setOpenMenu(true)}
-         />
+        <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
       </div>
       <Drawer open={openMenu} onClose={() => setOpenMenu(false)} anchor="right">
         <Box
@@ -70,7 +70,7 @@ const Navbar = () => {
         </Box>
       </Drawer>
     </nav>
-  )
+  );
 }
 
 export default Navbar

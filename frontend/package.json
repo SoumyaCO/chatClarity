@@ -17,9 +17,11 @@
     "@mui/material": "^5.15.12",
     "g": "^2.0.1",
     "npx": "^10.2.2",
+    "plotly.js": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
+    "react-plotly.js": "^2.6.0",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
