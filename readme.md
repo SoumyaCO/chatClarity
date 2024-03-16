@@ -1,20 +1,44 @@
 # ChatClarity
 
-### An Experiment project to generate whats app group chat analytics and summerization
-![Design](diagrams/super_higher_level_design.png)
+### An Experiment project to generate whats app group chat analytics and Searching (powered by AI)
 
-#### Library used:
-1. Pandas
-2. Plotly
-3. Flask
-4. Nltk
-5. Huggingface transformers
+###  Screenshots
+1. Home page of the Application
+
+![Home Page](diagrams/home_page_cc.png)
+
+2. Uploading Page of the Application
+
+![Uploading Page](diagrams/file_uploader_cc.png)
+
+3. Contact Us Page of the Application
+
+![Contact Us Page](diagrams/contact_us_cc.png)
+
+4. Analytics Page (Working on it..)
+
+![Analytics Page](diagrams/plot_cc.png)
 
 
-#### TODO
-1. Create Flask server, expand `utils.py`
-2. Add analytics using `plotly`
-3. Experiment with `plotly.js` to embed this in web
-4. add test codes
-5. Dockerize the application.
-6. Deploy in cloud run.
+### Our Motive:
+1. Chat analytics and searching tool
+2. Keep you updated
+3. Faster access to desired old messages and updates by Important persons.
+
+
+### Contribution
+#### Tech Stack:
+**Frontend:**
+
+- React with JS
+- react-plotly
+- plain CSS (for styling)
+
+**Backend:**
+
+- Flask and Python
+- Numpy, Pandas for data processing
+- Hugging Face API
+- Temsorflow (implementing ..)
+
+*Come, contibute to this repository, get your first **"Pull Shark Badge"** and make this a successful open source project.*
