@@ -25,7 +25,7 @@ def split_and_format(data: pd.DataFrame) -> pd.DataFrame:
     """
     data[["Date", "Time"]] = data["Date_Time"].str.split(',', expand=True)
     data.drop(["Time", "Date_Time"], axis=1, inplace=True)
-    data["Date"] = pd.to_datetime(data["Date"], format="%d/%M/%Y")
+    data["Date"] = pd.to_datetime(data["Date"], format="mixed")
     return data
 
 
@@ -54,7 +54,8 @@ def process_data(path: str) -> None:
             df.Message = df.Message.apply(lambda x: x.encode('ascii', 'ignore').decode('utf-8'))
             # making the user into right format
             df.User = df.User.apply(lambda x: x.encode('ascii', 'ignore').decode('utf-8'))
-            return df
+        print(df)
+        return df
     except:
         print("[data_processing.py/process_data()] Not a an appropriet file.")
 
@@ -72,6 +73,7 @@ def date_vs_msg_count(path: str):
     return message
 
 def user_vs_msg_count(path: str):
+
     try:
         data = process_data(path)
         users = data['User'].value_counts().reset_index()['User'].values.tolist()
@@ -80,8 +82,9 @@ def user_vs_msg_count(path: str):
             'users': users[:10],
             'counts': counts[:10]
         }
+        print(message)
         return message
     except:
-        print("[data_processing.py/user_vs_msg_count] Error, the file is not suitable.")
+        print("[data_processing.py/user_vs_msg_count()] Something Fishy.")
 
 

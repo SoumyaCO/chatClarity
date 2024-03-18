@@ -1,23 +1,15 @@
 import React, { Component, useEffect } from "react";
 import Plot from "react-plotly.js";
-// import { handleQuery } from "./FileUploder";
-const Output = () => {
+
+const Output = ({x_data, y_data}) => {
   {
-
-
-    // useEffect(() => {
-    //   // handleQuery()
-    //   .then(data => setApiData(data))
-    //   .catch(error => console.error('Error', error))
-    // }, []);
-
     return (
       <div className="output_show">
           <Plot
             data={[
               {
-                x: ['Abbas', 'Akbar', 'Anil', 'Amal'],
-                y: [230, 160, 340, 432],
+                x: x_data,
+                y: y_data,
                 type: "bar",
                 marker: { color: "cyan" },
               },
