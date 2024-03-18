@@ -41,7 +41,7 @@ def process_data(path: str) -> None:
         pandas.DataFrame
     """
     try:
-        with open(path) as file:
+        with open(path, encoding='utf-8') as file:  # for windows (safety) <-- windows uses other format
             content = file.read()
             pattern = r"(.*?) \- (.*?): (.*)|\[(.*?)\] (.*?): (.*)"
             matches = re.findall(pattern, content)
