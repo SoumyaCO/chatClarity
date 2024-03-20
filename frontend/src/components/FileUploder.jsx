@@ -46,6 +46,7 @@ export const FileUploader = () => {
   if (showOutput && apiResponse) {
     return (
       <Output x_data={api_fetch_data.users} y_data={api_fetch_data.counts} />
+
     );
   }
 

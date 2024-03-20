@@ -235,10 +235,11 @@ nav {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
     font-size: 16px;
 
    input {
+    background: #63595b;
      margin-top: 10px;
      margin-bottom: 10px;
       width: 100%;
@@ -254,6 +255,7 @@ nav {
     }
 
     textarea {
+      background-color: #63595b;
       margin-top: 10px;
       max-width: 60%;
       min-width: 100%;
@@ -264,6 +266,7 @@ nav {
       outline: none;
       border-radius: 5px;
       border: 1px solid rgb(220, 220, 220);
+    
 
       &:focus {
         border: 2px solid rgba(0, 206, 158, 1);
@@ -282,6 +285,8 @@ nav {
       color: white;
       border: none;
     }
+    
+
   }
   .alert_message{
     position:fixed;
@@ -297,7 +302,7 @@ nav {
   
   .alert button {
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 15px 10px;
     border: none;
     background-color: #3c3b3d;
     color: white;
