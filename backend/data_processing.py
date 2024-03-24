@@ -40,24 +40,26 @@ def process_data(path: str) -> None:
     Returns:
         pandas.DataFrame
     """
+
     try:
-        with open(path, encoding='utf-8') as file:  # for windows (safety) <-- windows uses other format
-            content = file.read()
-            pattern = r"(.*?) \- (.*?): (.*)|\[(.*?)\] (.*?): (.*)"
-            matches = re.findall(pattern, content)
-            df = pd.DataFrame(matches, columns=["Date_Time", "User", "Message", "Date_Time", "User", "Message"])
+    with open(path,encoding='utf-8') as file:
+        content = file.read()
+        pattern = r"(.*?) \- (.*?): (.*)|\[(.*?)\] (.*?): (.*)"
+        matches = re.findall(pattern, content)
+        df = pd.DataFrame(matches, columns=["Date_Time", "User", "Message", "Date_Time", "User", "Message"])
+
             # trimming extra columns
-            df.replace("", float("NaN"), inplace=True)
-            df.dropna(how='all', axis=1, inplace=True)
-            df = split_and_format(data=df)
+        df.replace("", float("NaN"), inplace=True)
+        df.dropna(how='all', axis=1, inplace=True)
+        df = split_and_format(data=df)
             # making the messages into right format
-            df.Message = df.Message.apply(lambda x: x.encode('ascii', 'ignore').decode('utf-8'))
+        df.Message = df.Message.apply(lambda x: x.encode('ascii', 'ignore').decode('utf-8'))
             # making the user into right format
-            df.User = df.User.apply(lambda x: x.encode('ascii', 'ignore').decode('utf-8'))
-        print(df)
-        return df
-    except:
-        print("[data_processing.py/process_data()] Not a an appropriet file.")
+        df.User = df.User.apply(lambda x: x.encode('ascii', 'ignore').decode('utf-8'))
+    print(df)
+    return df
+    # except:
+    #     print("[data_processing.py/process_data()] Not a an appropriet file.")
 
 
 def date_vs_msg_count(path: str):
@@ -74,17 +76,17 @@ def date_vs_msg_count(path: str):
 
 def user_vs_msg_count(path: str):
 
-    try:
-        data = process_data(path)
-        users = data['User'].value_counts().reset_index()['User'].values.tolist()
-        counts = data['User'].value_counts().reset_index()['count'].values.tolist()
-        message = {
-            'users': users[:10],
-            'counts': counts[:10]
-        }
-        print(message)
-        return message
-    except:
-        print("[data_processing.py/user_vs_msg_count()] Something Fishy.")
+    # try:
+    data = process_data(path)
+    users = data['User'].value_counts().reset_index()['User'].values.tolist()
+    counts = data['User'].value_counts().reset_index()['count'].values.tolist()
+    message = {
+        'users': users[:10],
+        'counts': counts[:10]
+    }
+    print(message)
+    return message
+    # except:
+    #     print("[data_processing.py/user_vs_msg_count()] Something Fishy.")
 
 

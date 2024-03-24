@@ -173,6 +173,51 @@ nav {
   display: flex;
   margin-top: 1.5rem;
 }
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.taking_inputs input,
+.Quary_Search_button {
+  animation: fadeIn 3s ease-in-out;
+}
+.taking_inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taking_inputs ::placeholder{
+  color: #e9ebedcb;
+}
+
+.taking_inputs 
+  input {
+    color: #e9ebed;
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 30px;
+    box-sizing: border-box;
+    border: 2px solid #13143f;
+    border-radius: 18px;
+    background-color: #127de1b4;;
+    font-size: 16px;
+    transition: 0.3s;
+    
+ 
+  
+  input:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  .Quary_Search_button{
+    
+    margin-left: auto;
+    text-align: center;
+    
+  
+  }
+  
+}
 .date_picker{
   display: flex;
   align-items: center;
@@ -235,10 +280,11 @@ nav {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
     font-size: 16px;
 
    input {
+    background: #63595b;
      margin-top: 10px;
      margin-bottom: 10px;
       width: 100%;
@@ -254,6 +300,7 @@ nav {
     }
 
     textarea {
+      background-color: #63595b;
       margin-top: 10px;
       max-width: 60%;
       min-width: 100%;
@@ -264,6 +311,7 @@ nav {
       outline: none;
       border-radius: 5px;
       border: 1px solid rgb(220, 220, 220);
+    
 
       &:focus {
         border: 2px solid rgba(0, 206, 158, 1);
@@ -282,6 +330,8 @@ nav {
       color: white;
       border: none;
     }
+    
+
   }
   .alert_message{
     position:fixed;
@@ -290,14 +340,14 @@ nav {
     transform:translate(-50%, -50%);
     padding:20px;
     background-color: #f8d7da;
-    color:#80c685;
+    color:#2d312dc6;
     border:1px solid #f5c6cb;
     border-radius: 5px;
   }
   
   .alert button {
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 15px 10px;
     border: none;
     background-color: #3c3b3d;
     color: white;
@@ -365,12 +415,28 @@ nav {
     margin-top: 5rem;
     margin-left: 2rem;
   }
+  
+.taking_inputs 
+input{
+  margin-left: 3rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  max-width: 200px;
+}
 
   .secondary-button {
     font-size: 1rem;
     padding: 0.8rem 2rem;
     cursor: pointer;
   }
+  .mixed-chart {
+   margin-left: 2rem;
+    justify-content: center;
+    align-items: center;
+    }
    
   .footer-wrapper {
     flex-direction: column;

@@ -1,30 +1,64 @@
-import React, { Component, useEffect } from "react";
-import Plot from "react-plotly.js";
+import React from "react";
+import Chart from "react-apexcharts";
 
-const Output = ({x_data, y_data}) => {
-  {
+class Output extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: {
+        chart: {
+          id: "basic-bar",
+        },
+        xaxis: {
+          categories: props.x_data,
+          labels: {
+            style: {
+              colors: '#90D26D',
+            },
+          },
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: '#F6995C',
+            
+            },
+          },
+        },
+        grid: {
+          show: false, 
+        },
+        plot_bgcolor: "transparent",
+        paper_bgcolor: "transparent",
+        autosize: true,
+      },
+      series: [
+        {
+          name: "series-1",
+          data: props.y_data,
+        },
+      ],
+    };
+    
+  }
+
+  render() {
     return (
-      <div className="output_show">
-          <Plot
-            data={[
-              {
-                x: x_data,
-                y: y_data,
-                type: "bar",
-                marker: { color: "cyan" },
-              },
-            ]}
-            layout={{
-              width: '50%',
-              height: '50%',
-              title: "Users vs Message Count",
-              paper_bgcolor: "",
-              plot_bgcolor: "#172042",
-            }}
-          />
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type="bar"
+              width="700"
+            />
+          </div>
+        </div>
       </div>
     );
   }
-};
+}
 
 export default Output;
