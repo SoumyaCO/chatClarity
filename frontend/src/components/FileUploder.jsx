@@ -3,15 +3,16 @@ import { MdCloudUpload, MdDelete } from "react-icons/md";
 import { FaFile } from "react-icons/fa";
 import Output from "./Output";
 
-
 export let api_fetch_data = {};
 
 export const FileUploader = () => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("No selected file");
-  const [selectedDate, setSelectedDate] = useState(null); // ?? use cases
+  const [selectedDate, setSelectedDate] = useState(null);
   const [showOutput, setShowOutput] = useState(false);
   const [apiResponse, setApiResponse] = useState(false);
+  const [keyword, setKeyword] = useState("");
+  const [number, setNumber] = useState("");
 
   const handleQuery = async () => {
     // Get the file, date, and time from the form
@@ -33,20 +34,37 @@ export const FileUploader = () => {
         setApiResponse(true);
       })
       .catch((error) => console.error("Error: ", error));
-    
-    // for console logging the api response
-    console.log(api_fetch_data);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     handleQuery();
     setShowOutput(true);
   };
   if (showOutput && apiResponse) {
     return (
-      <Output x_data={api_fetch_data.users} y_data={api_fetch_data.counts} />
-
+      <div>
+        <Output x_data={api_fetch_data.users} y_data={api_fetch_data.counts} />
+        <div className="taking_inputs">
+          <input
+            type="text"
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+            placeholder="Keyword"
+          />
+          <input
+            type="text"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            placeholder="Number"
+          />
+          <div className="Quary_Search_button">
+            <button type="submit" className="secondary-button">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
     );
   }
 

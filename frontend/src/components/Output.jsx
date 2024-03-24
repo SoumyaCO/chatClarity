@@ -1,63 +1,64 @@
 import React from "react";
-import Plot from "react-plotly.js";
+import Chart from "react-apexcharts";
 
-const Output = ({ x_data, y_data }) => {
-  return (
-    <div className="output_show">
-      <Plot
-        data={[
-          {
-            x: x_data,
-            y: y_data,
-            type: "bar",
-            marker: {
-              color: "cyan",
-              line: {
-                color: "rgb(8,48,107)",
-              },
+class Output extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: {
+        chart: {
+          id: "basic-bar",
+        },
+        xaxis: {
+          categories: props.x_data,
+          labels: {
+            style: {
+              colors: '#90D26D',
             },
           },
-        ]}
-        layout={{
-          showlegend: false,
-          width: "100%",
-          height: "100%",
-          title: "Users vs Message Count",
-          paper_bgcolor: "transparent",
-          plot_bgcolor: "transparent",
-          xaxis: {
-            tickformat: "+91 %",
-            showgrid: false,
-            zeroline: false,
-            tickfont: {
-              size: 14,
-              color: "#E8751A",
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: '#F6995C',
+            
             },
           },
-          font: {
-            color: "#FF204E",
-          },
-          yaxis: {
-            showgrid: false,
-            zeroline: false,
-            tickfont: {
-              size: 14,
-              color: "#E8751A",
-            },
-          },
-          autosize: true,
-          margin: {
-            l: 50,
-            r: 50,
-            b: 100,
-            t: 100,
-            pad: 4,
-          },
-        }}
-        config={{ displayModeBar: false }}
-      />
-    </div>
-  );
-};
+        },
+        grid: {
+          show: false, 
+        },
+        plot_bgcolor: "transparent",
+        paper_bgcolor: "transparent",
+        autosize: true,
+      },
+      series: [
+        {
+          name: "series-1",
+          data: props.y_data,
+        },
+      ],
+    };
+    
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type="bar"
+              width="700"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Output;
