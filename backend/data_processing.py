@@ -40,12 +40,14 @@ def process_data(path: str) -> None:
     Returns:
         pandas.DataFrame
     """
-    # try:
+
+    try:
     with open(path,encoding='utf-8') as file:
         content = file.read()
         pattern = r"(.*?) \- (.*?): (.*)|\[(.*?)\] (.*?): (.*)"
         matches = re.findall(pattern, content)
         df = pd.DataFrame(matches, columns=["Date_Time", "User", "Message", "Date_Time", "User", "Message"])
+
             # trimming extra columns
         df.replace("", float("NaN"), inplace=True)
         df.dropna(how='all', axis=1, inplace=True)
