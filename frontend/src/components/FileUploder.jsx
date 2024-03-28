@@ -22,7 +22,8 @@ export const FileUploader = () => {
     // Create a formdata
     const formData = new FormData();
     formData.append("file", fileInput.files[0]);
-    formData.append("date", date);
+    formData.append("date", date);//Add selected date to formData
+ 
 
     const response = await fetch("http://127.0.0.1:5000/test", {
       method: "POST",
@@ -36,6 +37,24 @@ export const FileUploader = () => {
       .catch((error) => console.error("Error: ", error));
   };
 
+  const handleSearch = async () => {
+    // Create a formdata for handale Search of an keyword or number 
+    const formData = new FormData();
+    formData.append("keyword", keyword); // Add keyword to formData
+    formData.append("number", number); // Add number to formData
+  
+    const response = await fetch("http://127.0.0.1:5000/test", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        api_fetch_data = data;
+        setApiResponse(true);
+      })
+      .catch((error) => console.error("Error: ", error));
+  };
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     handleQuery();
@@ -49,23 +68,23 @@ export const FileUploader = () => {
           <input
             type="text"
             value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
+            onChange={(e) => setKeyword(e.target.value)} // Keyword input
             placeholder="Keyword"
           />
           <input
             type="text"
             value={number}
-            onChange={(e) => setNumber(e.target.value)}
+            onChange={(e) => setNumber(e.target.value)} //Number input
             placeholder="Number"
           />
-          <div className="Quary_Search_button">
-            <button type="submit" className="secondary-button">
+          <div className="Quary_Search_button">  
+            <button type="submit" className="secondary-button" onClick={handleSearch}>  
               Search
             </button>
           </div>
         </div>
       </div>
-    );
+    );// Submit input
   }
 
   return (
@@ -86,7 +105,7 @@ export const FileUploader = () => {
             }}
           />
           <div
-            className="upload_img"
+            className="upload_file"
             onClick={() => document.querySelector(".input-field").click()}
           >
             {file ? (
